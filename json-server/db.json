@@ -1,0 +1,26 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "name": "Create Node APIs",
+            "description": " ",
+            "categoryId": 1
+        },
+        {
+            "id": 2,
+            "name": "Go to Supermarket",
+            "description": "buy fish and fruits",
+            "categoryId": 2
+        }
+    ],
+    "category": [
+        {
+            "id": 1,
+            "name": "work"
+        },
+        {
+            "id":2,
+            "name": "living"
+        }
+    ]
+}
