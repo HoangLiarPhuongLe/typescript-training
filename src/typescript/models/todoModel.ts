@@ -1,10 +1,10 @@
 import Category from './categoryModel';
-
 class Todo {
     /**
      * Constructor of Todo object
      * @param {Object} todo
      */
+
     name: string;
     description: string;
     categoryId: string;
