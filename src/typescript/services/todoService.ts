@@ -2,7 +2,7 @@ import { API_BASE_URL } from '../constants/urls';
 import Todo from '../models/todoModel';
 import ApiService from './apiService';
 
-class TodoService extends ApiService<Todo[]> {
+class TodoService extends ApiService<Todo> {
     private todoList: Todo[];
 
     constructor() {

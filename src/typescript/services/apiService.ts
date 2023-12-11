@@ -7,7 +7,7 @@ class ApiService<T> {
         this.path = path;
     }
 
-    async get(relationship: string): Promise<T> {
+    async get(relationship: string): Promise<T[]> {
         try {
             const response = await fetch(`${this.baseUrl}${this.path}${relationship}`);
             if (!response.ok) {
