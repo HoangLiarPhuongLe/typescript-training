@@ -3,23 +3,23 @@
         {
             "id": 1,
             "name": "Create Node APIs",
-            "description": " ",
-            "categoryId": 1
+            "description": "None",
+            "categoryId": "1"
         },
         {
             "id": 2,
             "name": "Go to Supermarket",
             "description": "buy fish and fruits",
-            "categoryId": 2
+            "categoryId": "2"
         }
     ],
-    "category": [
+    "categories": [
         {
-            "id": 1,
+            "id": "1",
             "name": "work"
         },
         {
-            "id":2,
+            "id": "2",
             "name": "living"
         }
     ]
