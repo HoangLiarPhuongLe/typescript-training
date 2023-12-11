@@ -43,10 +43,11 @@ class TodoView {
             const nameTodos: NodeList = document.querySelectorAll('.todo-info-name');
 
             nameTodos.forEach((nameTodo) => {
+                (nameTodo.parentNode?.parentNode as HTMLElement).classList.remove('todo-hidden');
                 if (nameTodo.textContent?.toLocaleLowerCase().includes(value)) {
-                    (nameTodo.parentNode?.parentNode as HTMLElement).style.display = 'flex';
+                    (nameTodo.parentNode?.parentNode as HTMLElement).classList.add('todo-show');
                 } else {
-                    (nameTodo.parentNode?.parentNode as HTMLElement).style.display = 'none';
+                    (nameTodo.parentNode?.parentNode as HTMLElement).classList.add('todo-hidden');
                 }
             });
         });
