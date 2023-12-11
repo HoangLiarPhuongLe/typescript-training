@@ -19,6 +19,7 @@ class TodoController {
     async initTodos(): Promise<void> {
         await this.service.todoService.initTodoList();
         this.loadListTodos();
+        this.view.todoView.addEventSearch();
     }
 
     /**
