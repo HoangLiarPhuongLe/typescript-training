@@ -1,19 +1,13 @@
 import Todo from '../models/todoModel';
 import TodoTemplate from '../templates/todoTemplate';
-
 class TodoView {
     todoListEl: HTMLElement;
-    btnSearchEl: HTMLElement;
-    inputSearchEl: HTMLInputElement;
 
     /**
      * Constructor of TodoView object
      */
-
     constructor() {
         this.todoListEl = document.querySelector('.todo-list')!;
-        this.btnSearchEl = document.querySelector('.btn-search')!;
-        this.inputSearchEl = document.querySelector('.input-search')!;
     }
 
     //----- RENDERING -----//
@@ -28,26 +22,38 @@ class TodoView {
         });
     };
 
+    /**
+     * Render a todo in todo list.
+     * @param {Todo} todo
+     */
     renderTodo = (todo: Todo): void => {
         const todoTemplate = TodoTemplate.createTodo(todo);
 
         this.todoListEl.innerHTML += todoTemplate;
     };
 
+    /**
+     * Add event listener searching todos to the search input.
+     */
     addEventSearch = (): void => {
-        this.btnSearchEl?.addEventListener('click', async (e: MouseEvent) => {
+        const inputSearchEl: HTMLInputElement = document.querySelector('.input-search')!;
+        const btnSearchEl: HTMLElement = document.querySelector('.btn-search')!;
+
+        btnSearchEl?.addEventListener('click', async (e: MouseEvent) => {
             e.preventDefault();
 
-            const value: string = this.inputSearchEl.value;
-
+            const value: string = inputSearchEl.value;
             const nameTodos: NodeList = document.querySelectorAll('.todo-info-name');
 
             nameTodos.forEach((nameTodo) => {
-                (nameTodo.parentNode?.parentNode as HTMLElement).classList.remove('todo-hidden');
-                if (nameTodo.textContent?.toLocaleLowerCase().includes(value)) {
-                    (nameTodo.parentNode?.parentNode as HTMLElement).classList.add('todo-show');
+                const todoSearchEl = nameTodo.parentNode?.parentNode as HTMLElement;
+                const nameTodoText = nameTodo.textContent?.toLocaleLowerCase() as string;
+
+                todoSearchEl.classList.remove('todo-hidden');
+                if (nameTodoText.includes(value)) {
+                    todoSearchEl.classList.add('todo-show');
                 } else {
-                    (nameTodo.parentNode?.parentNode as HTMLElement).classList.add('todo-hidden');
+                    todoSearchEl.classList.add('todo-hidden');
                 }
             });
         });
