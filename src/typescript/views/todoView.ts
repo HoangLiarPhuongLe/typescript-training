@@ -47,7 +47,7 @@ class TodoView {
 
             nameTodos.forEach((nameTodo) => {
                 const todoSearchEl = nameTodo.parentNode?.parentNode as HTMLElement;
-                const nameTodoText = nameTodo.textContent?.toLocaleLowerCase() as string;
+                const nameTodoText = nameTodo.textContent as string;
 
                 todoSearchEl.classList.remove('todo-hidden');
                 if (nameTodoText.includes(value)) {
