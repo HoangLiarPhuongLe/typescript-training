@@ -12,6 +12,33 @@
             <h1 class="header-title">todo app</h1>
         </header>
 
+        <section class="search-container">
+            <form class="search-form">
+                <input type="search" name="search" class="input-search" />
+            </form>
+            <button class="btn-search">Search</button>
+        </section>
+
+        <div class="radio-button-container">
+            <form class="radio-button-form">
+                <input type="radio" name="todos" class="btn-all" checked value="All" />
+                <label for="todosAll">All</label>
+                <input type="radio" name="todos" class="btn-checked" value="Checked" />
+                <label for="todosChecked">Checked</label>
+                <input type="radio" name="todos" class="btn-none" value="None" />
+                <label for="todosNoneChecked">None</label>
+            </form>
+        </div>
+
+        <div class="select-categories-container">
+            <label for="categories">Filter by categories:</label>
+            <select name="categories" class="select-categories-form">
+                <option value="all">All</option>
+                <option value="work">Work</option>
+                <option value="living">Living</option>
+            </select>
+        </div>
+
         <section class="todo-list-container">
             <p class="todo-list-title">theTodos:</p>
 
