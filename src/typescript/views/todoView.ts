@@ -14,12 +14,37 @@ class TodoView {
 
     /**
      * Display the todo list.
-     * @param {Todo[]} transactions
+     * @param {Todo[]} todos
      */
     renderTodoList = (todos: Todo[]): void => {
+        this.todoListEl.innerHTML = '';
         todos.forEach((todo) => {
             this.renderTodo(todo);
         });
+    };
+
+    /**
+     * Display the todo checked list.
+     * @param {Todo[]} todos
+     */
+    renderTodoListChecked = (todos: Todo[]): void => {
+        this.todoListEl.innerHTML = '';
+
+        const todoListChecked: Todo[] = todos.filter((todo) => todo.status === true);
+
+        this.renderTodoList(todoListChecked);
+    };
+
+    /**
+     * Display the todo none checked list.
+     * @param {Todo[]} todos
+     */
+    renderTodoListNoneChecked = (todos: Todo[]): void => {
+        this.todoListEl.innerHTML = '';
+
+        const todoListNoneChecked: Todo[] = todos.filter((todo) => todo.status === false);
+
+        this.renderTodoList(todoListNoneChecked);
     };
 
     /**
@@ -50,12 +75,43 @@ class TodoView {
                 const nameTodoText = nameTodo.textContent as string;
 
                 todoSearchEl.classList.remove('todo-hidden');
-                if (nameTodoText.includes(value)) {
+                if (nameTodoText.toUpperCase().includes(value.toUpperCase())) {
                     todoSearchEl.classList.add('todo-show');
                 } else {
                     todoSearchEl.classList.add('todo-hidden');
                 }
             });
+        });
+    };
+
+    /**
+     * Add event listener show list todos by status.
+     */
+    addEventRenderByStatus = (todoList: Todo[]): void => {
+        const radioForm: HTMLFormElement = document.querySelector('.radio-button-form')!;
+
+        radioForm.addEventListener('change', async (e) => {
+            e.preventDefault();
+
+            if (e.target instanceof HTMLInputElement) {
+                const selectValue: string = e.target.value;
+
+                switch (selectValue) {
+                    case 'All':
+                        this.renderTodoList(todoList);
+                        break;
+                    case 'Checked':
+                        this.renderTodoListChecked(todoList);
+                        break;
+                    case 'None':
+                        this.renderTodoListNoneChecked(todoList);
+                        break;
+
+                    default:
+                        this.renderTodoList(todoList);
+                        break;
+                }
+            }
         });
     };
 }
