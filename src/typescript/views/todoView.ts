@@ -47,6 +47,22 @@ class TodoView {
         this.renderTodoList(todoListNoneChecked);
     };
 
+    renderTodoListByFilterCategoryWork = (todos: Todo[]): void => {
+        this.todoListEl.innerHTML = '';
+
+        const todoListByFilterCategoryWork: Todo[] = todos.filter((todo) => todo.category.name === 'work');
+
+        this.renderTodoList(todoListByFilterCategoryWork);
+    };
+
+    renderTodoListByFilterCategoryLiving = (todos: Todo[]): void => {
+        this.todoListEl.innerHTML = '';
+
+        const todoListByFilterCategoryLiving: Todo[] = todos.filter((todo) => todo.category.name === 'living');
+
+        this.renderTodoList(todoListByFilterCategoryLiving);
+    };
+
     /**
      * Render a todo in todo list.
      * @param {Todo} todo
@@ -107,6 +123,33 @@ class TodoView {
                         this.renderTodoListNoneChecked(todoList);
                         break;
 
+                    default:
+                        this.renderTodoList(todoList);
+                        break;
+                }
+            }
+        });
+    };
+
+    addEventRenderByFilterCategories = (todoList: Todo[]): void => {
+        const selectCategoriesForm: HTMLSelectElement = document.querySelector('.select-categories-form')!;
+
+        selectCategoriesForm.addEventListener('change', async (e) => {
+            e.preventDefault();
+
+            if (e.target instanceof HTMLSelectElement) {
+                const selectedCategory = e.target.value;
+
+                switch (selectedCategory) {
+                    case 'all':
+                        this.renderTodoList(todoList);
+                        break;
+                    case 'work':
+                        this.renderTodoListByFilterCategoryWork(todoList);
+                        break;
+                    case 'living':
+                        this.renderTodoListByFilterCategoryLiving(todoList);
+                        break;
                     default:
                         this.renderTodoList(todoList);
                         break;
