@@ -20,6 +20,7 @@ class TodoController {
         this.loadListTodos();
         this.view.todoView.addEventSearch();
         this.view.todoView.addEventRenderByStatus(this.service.todoService.getTodoList());
+        this.view.todoView.addEventRenderByFilterCategories(this.service.todoService.getTodoList());
     }
 
     /**
