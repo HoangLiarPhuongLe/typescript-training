@@ -2,13 +2,9 @@
     margin: 31.5px auto;
     border-radius: 4px;
     background: #fff;
-    border-top: 0.6px solid #0000001f;
-    border-left: 0.6px solid #0000001f;
-    border-right: 0.6px solid #0000001f;
+    border: 0.6px solid #0000001f;
     width: 664px;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
