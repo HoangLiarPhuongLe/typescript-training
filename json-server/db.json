@@ -13,6 +13,13 @@
             "description": "buy fish and fruits",
             "status": false,
             "categoryId": "2"
+        },
+        {
+            "id": 3,
+            "name": "Go to Cinema",
+            "description": "Captain Marvel",
+            "status": true,
+            "categoryId": "2"
         }
     ],
     "categories": [
