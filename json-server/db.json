@@ -4,12 +4,14 @@
             "id": 1,
             "name": "Create Node APIs",
             "description": "None",
+            "status": true,
             "categoryId": "1"
         },
         {
             "id": 2,
             "name": "Go to Supermarket",
             "description": "buy fish and fruits",
+            "status": false,
             "categoryId": "2"
         }
     ],

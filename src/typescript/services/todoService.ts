@@ -20,7 +20,7 @@ class TodoService extends ApiService<Todo[]> {
     };
 
     parseData = (data: Todo[]): Todo[] => {
-        return data.map((item) => new Todo(item.name, item.description, item.categoryId, item.category));
+        return data.map((item) => new Todo(item.name, item.description, item.status, item.categoryId, item.category));
     };
 
     getTodoList(): Todo[] {
