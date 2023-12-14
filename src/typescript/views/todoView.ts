@@ -1,3 +1,4 @@
+import { Status } from '../constants/enum';
 import Todo from '../models/todoModel';
 import TodoTemplate from '../templates/todoTemplate';
 class TodoView {
@@ -97,13 +98,13 @@ class TodoView {
                 const selectValue: string = e.target.value;
 
                 switch (selectValue) {
-                    case 'All':
+                    case Status.All:
                         this.renderTodoList(todoList);
                         break;
-                    case 'Checked':
+                    case Status.Checked:
                         this.renderTodoListChecked(todoList);
                         break;
-                    case 'None':
+                    case Status.NoneChecked:
                         this.renderTodoListNoneChecked(todoList);
                         break;
 
