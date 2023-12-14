@@ -19,9 +19,7 @@ class TodoTemplate {
                     <p class="todo-info-text">Description: ${todo.description}</p>
                     <p class="todo-info-text">Category: ${todo.category.name}</p>
                 </div>
-                <form>
-                    <input type="checkbox" />
-                </form>
+                <input type="checkbox" ${todo.status ? 'checked' : ''} />
             </li>
         `;
     };
