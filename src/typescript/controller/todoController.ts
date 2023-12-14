@@ -1,7 +1,6 @@
 import Todo from '../models/todoModel';
 import Service from '../services/service';
 import View from '../views/view';
-
 class TodoController {
     service: Service;
     view: View;
@@ -19,6 +18,9 @@ class TodoController {
     async initTodos(): Promise<void> {
         await this.service.todoService.initTodoList();
         this.loadListTodos();
+        this.view.todoView.addEventSearch();
+        this.view.todoView.addEventRenderByStatus(this.service.todoService.getTodoList());
+        this.view.todoView.addEventRenderByFilterCategories(this.service.todoService.getTodoList());
     }
 
     /**
